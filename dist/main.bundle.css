@@ -1,7 +1,31 @@
 body {
-  background: black; }
+  background: url(/dist/img/background.jpg?a689a62fefe1341b729f6905db499f73);
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  font-family: "Marvel", sans-serif;
+  font-size: 16px; }
   body .container {
-    width: 600px;
-    height: 600px;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
-    background: red; }
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 15px;
+  background-color: #FDDD00;
+  border: 4px solid #C61A1A;
+  color: #C61A1A;
+  text-decoration: none;
+  transition: font-size .3s, font-weight .3s;
+  font-size: 1.5rem; }
+  .btn:hover, .btn:focus, .btn:active {
+    font-size: 5rem;
+    font-weight: 700; }
