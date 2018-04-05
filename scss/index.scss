@@ -2,9 +2,12 @@ body {
   background: black;
 
   .container {
-    width: 600px;
+    width: 320px;
     height: 600px;
     margin: 0 auto;
     background: red;
   }
 }
+
+
+@import './fightzone.scss';

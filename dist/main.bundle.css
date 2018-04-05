@@ -1,7 +1,12 @@
 body {
   background: black; }
   body .container {
-    width: 600px;
+    width: 320px;
     height: 600px;
     margin: 0 auto;
     background: red; }
+
+.fightzone .opponent,
+.fightzone .player {
+  width: 100%;
+  border: 1px solid black; }
