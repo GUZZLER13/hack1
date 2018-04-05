@@ -7,7 +7,7 @@ module.exports = {
     filename: 'dist/bundle.js'
   },
   loader: {
-    test: /\.(css|scss)$/,
+    test: /\.(css|scss|js)$/,
     exclude: /node_modules/,
     loader: ['react-hot-loader/webpack']
   },
@@ -23,16 +23,14 @@ module.exports = {
         })
       },
       {
-        test: /\.(png|jpeg|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: '/dist/',
-              name: 'img/[name].[ext]?[hash]'
-            }
+        test: /\.(png|jp(e*)g|svg)$/,
+        use: [{
+          loader: 'url-loader',
+          options: {
+            limit: 8000, // Convert images < 8kb to base64 strings
+            name: 'images/[hash]-[name].[ext]'
           }
-        ]
+        }]
       }
     ]
   },
