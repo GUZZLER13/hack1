@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Bangers|Marvel');
 @import "vars";
 
 body {
@@ -18,6 +19,32 @@ body {
     align-items: center;
     justify-content: center;
   }
+}
+
+header {
+  background-color: $primary-color;
+  color: $secondary-color;
+  width: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  font-family: 'Bangers';
+  text-align: center;
+  padding: 12px 0;
+}
+
+footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  width: 100%;
+  position: absolute;
+  bottom:0;
+  left: 0;
+  right: 0;
+  font-family: 'Bangers';
+  text-align: center;
+  padding: 12px 0;
 }
 
 
