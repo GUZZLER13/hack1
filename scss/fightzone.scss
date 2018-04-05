@@ -5,11 +5,63 @@
   width: 100%;
   height: 100%;
 
+  .button-fight {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    align-self: center;
+    border-radius: 75px;
+    border: 1px solid black;
+    background-color: white;
+    cursor: pointer;
+
+    .icon-sword,
+    .icon-sword-reverse {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-image: url('../img/icons/sword.png');
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .icon-sword-reverse {
+      transform: scale(-1, 1);
+    }
+
+    &:active {
+      border: 1px solid white;
+
+      .icon-sword,
+      .icon-sword-reverse {
+        background-image: url('../img/icons/sword_reverse.png');
+      }
+    }
+  }
+
   .opponent,
   .player {
+    position: relative;
     display: flex;
     flex-direction: column;
     height: 200px;
+
+    .defeat {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-image: url('../img/icons/dead.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+    }
 
     .fighter {
       display: flex;
@@ -62,10 +114,31 @@
     }
 
     .avatar {
-      display: inline-block;
+      position: relative;
+      display: flex;
+      flex-direction: column;
       width: 120px;
       height: 120px;
       margin-right: 20px;
+
+      .img-avatar {
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        border-radius: 45px;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+
+      .name-avatar {
+        width: 135px;
+        height: 22px;
+        margin-top: 2px;
+        padding: 0 5px;
+        background-color: white;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
     }
   }
 
@@ -92,6 +165,11 @@
       .avatar {
         margin-right: 0;
         margin-left: 20px;
+      }
+
+      .avatar {
+        align-items: flex-end;
+        text-align: right;
       }
     }
 
