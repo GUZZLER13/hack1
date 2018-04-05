@@ -8,4 +8,9 @@ $(document).ready(function() {
   $('.fill-level', '.fighter').each(function() {
     $(this).css("width", `${$(this).parent('.level').data("level")}%`);
   });
+
+  //Test levels
+  $('.fill-life', '.fightzone').each(function() {
+    $(this).css("width", `${$(this).parent('.lifepoints').data("life")}%`);
+  });
 });

@@ -22,7 +22,13 @@
 
     .lifepoints {
       flex-basis: 8px;
-      background-color: green;
+      background-color: white;
+
+      .fill-life {
+        display: block;
+        height: 8px;
+        background-color: green;
+      }
     }
 
     .cards {
@@ -65,6 +71,10 @@
 
   .opponent {
     border-bottom: 2px solid black;
+
+    .lifepoints .fill-life {
+      float: right;
+    }
   }
 
   .player {
@@ -83,6 +93,10 @@
         margin-right: 0;
         margin-left: 20px;
       }
+    }
+
+    .lifepoints .fill-life {
+      float: left;
     }
   }
 }
