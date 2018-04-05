@@ -1,0 +1,29 @@
+{
+  "name": "hack1",
+  "version": "1.0.0",
+  "description": "SuperHeroes Fight",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexLoWCD/hack1.git"
+  },
+  "author": "WCS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexLoWCD/hack1/issues"
+  },
+  "homepage": "https://github.com/AlexLoWCD/hack1#readme",
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.2"
+  },
+  "dependencies": {
+    "css-loader": "^0.28.7",
+    "node-sass": "^4.7.2",
+    "sass-loader": "^6.0.6",
+    "webpack": "^3.9.1"
+  }
+}
