@@ -1,8 +1,49 @@
 .fightzone {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+
   .opponent,
   .player {
-    width: 100%;
-    height: 
-    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+
+    .fighter {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-grow: 1;
+      background-color: red;
+    }
+
+    .lifepoints {
+      flex-basis: 8px;
+      background-color: green;
+    }
+
+    .cards {
+      flex-basis: 75px;
+      background-color: blue;
+    }
+
+    .stats {
+      width: 125px;
+      border: 1px solid black;
+
+      .stat {
+        height: 30px;
+      }
+    }
+  }
+
+  .opponent {
+    border-bottom: 2px solid black;
+  }
+
+  .player {
+    flex-direction: column-reverse;
+    border-top: 2px solid black;
   }
 }

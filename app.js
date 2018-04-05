@@ -1,1 +1,1 @@
-console.log("coucou");
+const $ = require('jquery');
