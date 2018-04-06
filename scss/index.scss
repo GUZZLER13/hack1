@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers|Marvel');
 @import "vars";
+@import "animate";
 
 body {
   background: url('../img/background.jpg');
@@ -19,6 +20,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .hidden {
@@ -37,9 +39,11 @@ header {
   font-family: 'Bangers';
   text-align: center;
   padding: 12px 0;
+  z-index: 100;
 }
 
 footer {
+  z-index: 100;
   background-color: $primary-color;
   color: $secondary-color;
   width: 100%;
@@ -64,6 +68,7 @@ footer {
   text-decoration: none;
   transition: font-size .3s, font-weight .3s;
   font-size: 1.5rem;
+  font-family: 'Bangers';
   &:hover, &:focus, &:active {
     font-size: 5rem;
     font-weight: 700;
@@ -73,3 +78,4 @@ footer {
 
 @import './fightzone.scss';
 @import './icons.scss';
+@import './versus.scss';

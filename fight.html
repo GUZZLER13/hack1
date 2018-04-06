@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <title>SuperHero Fight</title>
-    <link href="https://fonts.googleapis.com/css?family=Marvel:400,700" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="dist/main.bundle.css" />
   </head>
   <body>
@@ -12,19 +11,19 @@
       <div class="fightzone">
         <div class="opponent">
           <div class="defeat"></div>
-          <div class="fighter">
+          <div class="superhero">
             <!-- Stats adversaire -->
             <div class="stats">
               <div class="stat strength">
-                <span class="icon icon-strength"></span>
+                <span class="icon-stat"><span class="icon icon-strength"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
               <div class="stat power">
-                <span class="icon icon-power"></span>
+                <span class="icon-stat"><span class="icon icon-power"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
               <div class="stat speed">
-                <span class="icon icon-speed"></span>
+                <span class="icon-stat"><span class="icon icon-speed"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
             </div>
@@ -39,28 +38,27 @@
           <div class="lifepoints" data-life="65"><span class="fill-life"></span></div>
 
           <!-- Cartes adversaire -->
-          <div class="cards"></div>
         </div>
 
         <div class="button-fight hidden">
-          <span class="icon-sword"></span>
-          <span class="icon-sword-reverse"></span>
+          <div class="bg-btn-fight"></div>
         </div>
 
         <div class="player">
-          <div class="fighter">
+          <div class="superhero">
+            <div class="defeat"></div>
             <!-- Stats joueur -->
             <div class="stats">
               <div class="stat strength">
-                <span class="icon icon-strength"></span>
+                <span class="icon-stat"><span class="icon icon-strength"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
               <div class="stat power">
-                <span class="icon icon-power"></span>
+                <span class="icon-stat"><span class="icon icon-power"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
               <div class="stat speed">
-                <span class="icon icon-speed"></span>
+                <span class="icon-stat"><span class="icon icon-speed"></span></span>
                 <span class="level"><span class="fill-level"></span></span>
               </div>
             </div>
@@ -75,7 +73,6 @@
           <div class="lifepoints" data-life="100"><span class="fill-life"></span></div>
 
           <!-- Cartes joueur -->
-          <div class="cards"></div>
         </div>
       </div>
     </div>

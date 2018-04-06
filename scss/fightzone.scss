@@ -1,3 +1,5 @@
+$borderBlack: 2px solid black;
+
 .fightzone {
   display: flex;
   flex-direction: column;
@@ -6,39 +8,28 @@
   height: 100%;
 
   .button-fight {
-    position: relative;
-    width: 150px;
-    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
     align-self: center;
-    border-radius: 75px;
-    border: 1px solid black;
-    background-color: white;
+    border-radius: 100px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(0, 0, 0, 0.59);
     cursor: pointer;
 
-    .icon-sword,
-    .icon-sword-reverse {
-      position: absolute;
-      top: 0;
-      left: 0;
-      display: inline-block;
+    .bg-btn-fight {
       width: 100%;
-      height: 100%;
-      background-image: url('../img/icons/sword.png');
+      height: 80%;
+      background-image: url("../img/attack_btn.png");
       background-repeat: no-repeat;
       background-position: center;
+      background-size: cover;
     }
 
-    .icon-sword-reverse {
-      transform: scale(-1, 1);
-    }
 
     &:active {
-      border: 1px solid white;
-
-      .icon-sword,
-      .icon-sword-reverse {
-        background-image: url('../img/icons/sword_reverse.png');
-      }
+      box-shadow: inset 0 4px 8px 0 rgba(0, 0, 0, 0.4), inset 0 6px 20px 0 rgba(0, 0, 0, 0.39);
     }
   }
 
@@ -47,7 +38,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 200px;
+    height: 135px;
 
     .defeat {
       display: none;
@@ -55,46 +46,47 @@
       top: 0;
       left: 0;
       right: 0;
-      bottom: 0;
+      bottom: 12px;
       background-color: rgba(0, 0, 0, 0.6);
-      background-image: url('../img/icons/dead.png');
+      background-image: url("../img/icons/dead.png");
       background-repeat: no-repeat;
       background-position: center;
-      z-index: 2;
+      z-index: 10;
     }
 
-    .fighter {
+    .superhero {
       display: flex;
       align-items: center;
       justify-content: flex-end;
       height: 125px;
       padding: 10px 0;
+      background-color: $red;
       box-sizing: border-box;
-      background-image: url('../img/bg_fighter_right.jpg');
+      border-left: $borderBlack;
+      border-right: $borderBlack;
+      background-image: url("../img/bg_fighter_right.jpg");
       background-size: cover;
       background-position: right;
       background-repeat: no-repeat;
     }
 
     .lifepoints {
+      width: 75%;
       height: 8px;
-      background-color: white;
+      background-color: rgb(119, 12, 12);
+      border: $borderBlack;
 
       .fill-life {
         display: block;
         height: 8px;
-        background-color: green;
+        background: linear-gradient(to right, #22aa7f 0%,#16c100 45%,#16c100 100%);
+        transition: width .3s ease-out;
       }
     }
 
-    .cards {
-      flex-grow: 1;
-      background-color: blue;
-    }
-
     .stats {
-      width: 75px;
-      margin-right: 20px;
+      width: 100px;
+      margin-right: 31px;
 
       .stat {
         display: flex;
@@ -102,16 +94,35 @@
         height: 30px;
         margin: 3px 0;
 
+        .icon-stat {
+          width: 20px;
+          height: 20px;
+          padding: 3px;
+          border-radius: 3px;
+          border: $borderBlack;
+          background-image: url("../img/bg_icon_stats.jpeg");
+          background-size: contain;
+          z-index: 2;
+        }
+
         .level {
+          position: relative;
           display: inline-block;
           flex-grow: 1;
           height: 10px;
-          margin-left: 5px;
+          margin-left: -40px;
+          padding-left: 39px;
+          border: $borderBlack;
+          border-radius: 2px 10px 10px 2px;
+          box-shadow: -5px 6px 1px rgba(0, 0, 0, 0.6);
+          background-color: #bb1d17;
 
           .fill-level {
+            position: relative;
             display: block;
             height: 10px;
-            background-color: green;
+            background: url("../img/bg_stat.jpg") repeat-x;
+            border-radius: 2px 10px 10px 2px;
           }
         }
       }
@@ -149,40 +160,64 @@
   }
 
   .opponent {
-    border-bottom: 2px solid black;
+    .superhero {
+      border-bottom: $borderBlack;
+    }
 
-    .lifepoints .fill-life {
-      float: right;
+    .lifepoints {
+      align-self: flex-end;
+      border-bottom-left-radius: 10px;
+      border-top: none;
+      overflow: hidden;
+
+      .fill-life {
+        float: right;
+      }
     }
   }
 
   .player {
     flex-direction: column-reverse;
-    border-top: 2px solid black;
 
-    .fighter {
+    .defeat {
+      top: 12px;
+      bottom: 0;
+    }
+
+    .superhero {
       justify-content: flex-start;
-      background-image: url('../img/bg_fighter_left.jpg');
+      border-top: $borderBlack;
+      background-image: url("../img/bg_fighter_left.jpg");
       background-position: unset;
 
       .stats {
         order: 1;
       }
 
-      .stats,
-      .avatar {
+      .avatar,
+      .stats {
         margin-right: 0;
-        margin-left: 31px;
+      }
+
+      .stats {
+        margin-left: 40px;
       }
 
       .avatar {
         align-items: flex-end;
+        margin-left: 31px;
         text-align: right;
       }
     }
 
-    .lifepoints .fill-life {
-      float: left;
+    .lifepoints {
+      border-top-right-radius: 10px;
+      border-bottom: none;
+      overflow: hidden;
+
+      .fill-life {
+        background: linear-gradient(to right, #16c100 0%,#16c100 55%,#22aa7f 100%);
+      }
     }
   }
 }
