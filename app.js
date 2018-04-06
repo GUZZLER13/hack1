@@ -79,9 +79,30 @@ $(document).ready(function() {
   }
 
   function initVersusPage(){
-    window.setTimeout(function(){
-      $('.versus').find('img').css('transform', 'translateX(0)');
-    }, 3000);
+    $.urlParam = function(name){
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      return results[1] || 0;
+    }
+
+    console.log($.urlParam('player1'));
+
+    for(let i = 1; i <= 2; i++){
+
+      $uri = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + $.urlParam('player'+i) +'.json';
+
+      $.get( $uri, function( data ) {
+          img =  document.querySelectorAll('.container.versus img')[(i-1)];
+          //$(img).load('<img src="'+ data.images.xs +'">' , function() {
+            $(img).attr('src', data.images.md);
+            window.setTimeout(function(){
+              $(img).css('transform', 'translateX(0)');
+            })
+
+          //});
+      });
+
+    }
+
   }
 
 });
