@@ -85,7 +85,7 @@ $(document).ready(function() {
 
   const initFightzone = () => {
     // Get the opponent informations
-    
+
     $.get(GET_SUPERHERO_INFOS($.urlParam( "player1" )), (data) => {
       initFighter(data, 'opponent');
 
@@ -127,7 +127,9 @@ $(document).ready(function() {
     }
   }
 
-  initFightzone();
+  if($('body').hasClass('fightzone')){
+    initFightzone();
+  }
 
   $btnFight.on("click", function() {
     // The player attack the opponent
