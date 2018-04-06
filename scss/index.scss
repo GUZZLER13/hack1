@@ -13,11 +13,16 @@ body {
   .container {
     box-sizing: border-box;
     width: 100%;
+    max-width: 1024px;
     height: 100%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .hidden {
+    display: none;
   }
 }
 
@@ -64,3 +69,7 @@ footer {
     font-weight: 700;
   }
 }
+
+
+@import './fightzone.scss';
+@import './icons.scss';

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SuperHero Fight</title>
+    <link href="https://fonts.googleapis.com/css?family=Marvel:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="dist/main.bundle.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Fight zone -->
+      <div class="fightzone">
+        <div class="opponent">
+          <div class="defeat"></div>
+          <div class="fighter">
+            <!-- Stats adversaire -->
+            <div class="stats">
+              <div class="stat strength">
+                <span class="icon icon-strength"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+              <div class="stat power">
+                <span class="icon icon-power"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+              <div class="stat speed">
+                <span class="icon icon-speed"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+            </div>
+
+            <!-- Avatar adversaire -->
+            <div class="avatar">
+              <div class="img-avatar"></div>
+              <div class="name-avatar"></div>
+            </div>
+          </div>
+
+          <!-- Points de vie adversaire -->
+          <div class="lifepoints" data-life="65"><span class="fill-life"></span></div>
+
+          <!-- Cartes adversaire -->
+          <div class="cards"></div>
+        </div>
+
+        <div class="button-fight hidden">
+          <span class="icon-sword"></span>
+          <span class="icon-sword-reverse"></span>
+        </div>
+
+        <div class="player">
+          <div class="fighter">
+            <!-- Stats joueur -->
+            <div class="stats">
+              <div class="stat strength">
+                <span class="icon icon-strength"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+              <div class="stat power">
+                <span class="icon icon-power"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+              <div class="stat speed">
+                <span class="icon icon-speed"></span>
+                <span class="level"><span class="fill-level"></span></span>
+              </div>
+            </div>
+
+            <!-- Avatar joueur -->
+            <div class="avatar">
+              <div class="img-avatar"></div>
+              <div class="name-avatar"></div>
+            </div>
+          </div>
+
+          <!-- Points de vie joueur -->
+          <div class="lifepoints" data-life="100"><span class="fill-life"></span></div>
+
+          <!-- Cartes joueur -->
+          <div class="cards"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="dist/bundle.js"></script>
+  </body>
+</html>
