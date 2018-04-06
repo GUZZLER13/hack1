@@ -14,7 +14,6 @@ $(document).ready(function() {
     $fighter.data("power", _fighter.powerstats.power);
     $fighter.data("defense", _fighter.powerstats.strength);
     $fighter.data("speed", _fighter.powerstats.speed);
-
     // Fill Stats
     $('.strength .fill-level', $stats).css("width", `${_fighter.powerstats.strength}%`);
     $('.power .fill-level', $stats).css("width", `${_fighter.powerstats.power}%`);
