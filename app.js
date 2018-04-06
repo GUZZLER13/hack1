@@ -146,11 +146,7 @@ $(document).ready(function() {
     }, 3000);
   }
 
-  $("img")
-  .on('load', function() { console.log("image loaded correctly"); })
-    // setTimeout(function(){
-    //   window.location.href = "/fight.html"+window.location.search
-    // },2000)
+
 
   
 });

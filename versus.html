@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>SuperHero Fight</title>
-    <link rel="stylesheet" type="text/css" href="dist/main.bundle.css" />
-  </head>
-  <body class="versus">
-    <header><h1>SuperHero Fight</h1></header>
-    <div class="container versus">
-      <div class="player">
-        <img src="https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/1-a-bomb.jpg"/>
-      </div>
-      <div class="cpu">
-        <img src="https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/5-abraxas.jpg"/>
-      </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>SuperHero Fight</title>
+  <link rel="stylesheet" type="text/css" href="dist/main.bundle.css" />
+</head>
+
+<body class="versus">
+  <header>
+    <h1>SuperHero Fight</h1>
+  </header>
+  <div class="container versus">
+    <div class="player">
+      <img src="https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/1-a-bomb.jpg" />
     </div>
-    <footer>SuperHero Fight <em>by</em>&nbsp;formateurs-from-BDX@wildcodeschool.fr</footer>
-    <script src="dist/bundle.js"></script>
+    <div class="cpu">
+      <img src="https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/lg/5-abraxas.jpg" />
+    </div>
+  </div>
+  <div class="hero-selection">
+      <button id="confirm-button" class="btn" style="    position: fixed;
+      bottom: 0;
+      right: 0;
+      z-index: 3333;" onclick="goto()">Pass</button>
+    </div>
+  <footer>SuperHero Fight
+    <em>by</em>&nbsp;formateurs-from-BDX@wildcodeschool.fr</footer>
+  <script src="dist/bundle.js"></script>
   <script>
-  setTimeout(function(){
-        window.location.href = "/fight.html"+window.location.search
-      },2000)
-      </script>
-  </body>
+
+    var goto = function () {
+      window.location.href = "/fight.html" + window.location.search
+    }
+  </script>
+</body>
+
 </html>
