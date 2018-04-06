@@ -47,20 +47,17 @@ $(document).ready(function() {
     selectCharacter($(this).attr('id'));
   });
 
-  var confirmSelection = function () {
-      if (!player1Selected) {
-          player1Selected = true;
-          $("#player-header").text("Player 2");
-          selectCharacter(0);
-      } else {
-          $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
-          $("#confirm-button").hide();
-          $("#fight-button").show();
-      }
-      console.log(player1Selected);
-  }
-
-
+  $('#confirm-button').on("click", function() {
+    if (!player1Selected) {
+        player1Selected = true;
+        $("#player-header").text("Player 2");
+        selectCharacter(0);
+    } else {
+        $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
+        $("#confirm-button").hide();
+        $("#fight-button").show();
+    }
+  });
 
   const $btnFight = $('.button-fight');
 
@@ -68,9 +65,10 @@ $(document).ready(function() {
     const $zone = $(`.${_zone}`);
     const $fighter = $('.superhero', $zone);
     const $stats = $('.stats', $fighter);
-    const $avatar = $('.avatar', $fighter);
+    const $avatar = $('.hero-avatar', $fighter);
 
     $fighter.data("life", 100);
+    $fighter.data("id", _fighter.id);
     $fighter.data("power", _fighter.powerstats.power);
     $fighter.data("defense", _fighter.powerstats.strength);
     $fighter.data("speed", _fighter.powerstats.speed);
@@ -87,11 +85,12 @@ $(document).ready(function() {
 
   const initFightzone = () => {
     // Get the opponent informations
-    $.get(GET_SUPERHERO_INFOS(1), (data) => {
+    
+    $.get(GET_SUPERHERO_INFOS($.urlParam( "player1" )), (data) => {
       initFighter(data, 'opponent');
 
       // Get the player informations
-      $.get(GET_SUPERHERO_INFOS(2), (data) => {
+      $.get(GET_SUPERHERO_INFOS($.urlParam( "player2" )), (data) => {
         initFighter(data, 'player');
         $btnFight.show();
       });
@@ -121,6 +120,9 @@ $(document).ready(function() {
       if (life <= 0) {
         $btnFight.hide();
         $('.defeat', $zoneDest).fadeIn();
+        setTimeout(function(){
+          window.location.href = "/win.html?player="+$fighterSrc.data("id");
+        },2000)
       }
     }
   }
@@ -144,4 +146,15 @@ $(document).ready(function() {
     }, 3000);
   }
 
+  $("img")
+  .on('load', function() { console.log("image loaded correctly"); })
+    // setTimeout(function(){
+    //   window.location.href = "/fight.html"+window.location.search
+    // },2000)
+
+  
 });
+$.urlParam = function(name){
+  var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+  return results[1] || 0;
+}
