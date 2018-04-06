@@ -47,20 +47,17 @@ $(document).ready(function() {
     selectCharacter($(this).attr('id'));
   });
 
-  var confirmSelection = function () {
-      if (!player1Selected) {
-          player1Selected = true;
-          $("#player-header").text("Player 2");
-          selectCharacter(0);
-      } else {
-          $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
-          $("#confirm-button").hide();
-          $("#fight-button").show();
-      }
-      console.log(player1Selected);
-  }
-
-
+  $('#confirm-button').on("click", function() {
+    if (!player1Selected) {
+        player1Selected = true;
+        $("#player-header").text("Player 2");
+        selectCharacter(0);
+    } else {
+        $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
+        $("#confirm-button").hide();
+        $("#fight-button").show();
+    }
+  });
 
   const $btnFight = $('.button-fight');
 
