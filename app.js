@@ -1,7 +1,67 @@
 const $ = require('jquery');
-const GET_SUPERHERO_INFOS = (id) => `https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/${id}.json`;
+const SUPER_API = "https://akabab.github.io/superhero-api/api";
+const SUPER_API_CACHED = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api";
+const GET_SUPERHERO_INFOS = (id) => `${SUPER_API_CACHED}/id/${id}.json`;
 
 $(document).ready(function() {
+
+  /*
+  * SELECTION DU PERSONNAGE
+  */
+  var charactersIdxList = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+  var charactersList = [];
+  var player1 = null;
+  var player1Selected = false;
+  var player2 = null;
+
+  //init des characters
+  charactersIdxList.forEach(function (charId, i) {
+      $.get(`${SUPER_API_CACHED}/id/${charId}.json`, function (character) {
+          charactersList[i] = character;
+          // console.log("data", character.images.xs);
+          // $(".result").html(JSON.stringify(data));
+          if (i == 0)
+              selectCharacter(i);
+
+          $("#" + i, '.characters-list').css("background-image", "url(" + character.images.sm + ")");
+      });
+  })
+
+
+  const selectCharacter = function (i) {
+      if (!player1Selected) {
+          player1 = charactersList[i];
+          $(".avatar").removeClass("player1");
+          $("#" + i, '.characters-list').addClass(" player1");
+          $(".avatar-bg").css("background-image", "url(" + player1.images.sm + ")");
+          $(".hero-details").html(player1.name);
+      } else {
+          player2 = charactersList[i];
+          $(".avatar").removeClass(" player2");
+          $("#" + i, '.characters-list').addClass(" player2");
+          $(".avatar-bg").css("background-image", "url(" + player2.images.sm + ")");
+          $(".hero-details").html(player2.name);
+      }
+  }
+  $('.avatar', '.characters-list').on("click", function() {
+    selectCharacter($(this).attr('id'));
+  });
+
+  var confirmSelection = function () {
+      if (!player1Selected) {
+          player1Selected = true;
+          $("#player-header").text("Player 2");
+          selectCharacter(0);
+      } else {
+          $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
+          $("#confirm-button").hide();
+          $("#fight-button").show();
+      }
+      console.log(player1Selected);
+  }
+
+
+
   const $btnFight = $('.button-fight');
 
   const initFighter = (_fighter, _zone) => {
