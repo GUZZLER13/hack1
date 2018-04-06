@@ -11,6 +11,31 @@ body {
   font-family: $font, sans-serif;
   font-size: 16px;
 
+  &.win{
+    background: url('../img/bg_win.jpg');
+    background-size: cover;
+    background-position: center;
+
+    .container{
+      flex-direction: column;
+    }
+
+    .circle{
+
+    height: 470px;
+    border-radius: 440px;
+    overflow: hidden;
+    margin-top: -7%;
+    }
+
+    .winner {
+      color: $yellow;
+      font-size: 5rem;
+      font-family: 'Bangers';
+      margin-top: -20px;
+    }
+  }
+
   .container {
     box-sizing: border-box;
     width: 100%;
