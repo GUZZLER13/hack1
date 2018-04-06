@@ -69,7 +69,7 @@
       justify-content: flex-end;
       flex-grow: 1;
       padding: 10px 0;
-      background-color: red;
+      background-color: $red;
     }
 
     .lifepoints {
@@ -79,13 +79,14 @@
       .fill-life {
         display: block;
         height: 8px;
-        background-color: green;
+        background-color: $green;
+        transition: width .3s ease-out;
       }
     }
 
     .cards {
       flex-basis: 75px;
-      background-color: blue;
+      background-color: $blue;
     }
 
     .stats {
@@ -107,7 +108,7 @@
           .fill-level {
             display: block;
             height: 10px;
-            background-color: green;
+            background-color: $green;
           }
         }
       }
