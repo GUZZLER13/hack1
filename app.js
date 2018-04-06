@@ -85,7 +85,7 @@ $(document).ready(function() {
 
   const initFightzone = () => {
     // Get the opponent informations
-    
+
     $.get(GET_SUPERHERO_INFOS($.urlParam( "player1" )), (data) => {
       initFighter(data, 'opponent');
 
@@ -127,7 +127,9 @@ $(document).ready(function() {
     }
   }
 
-  initFightzone();
+  if($('body').hasClass('fightzone')){
+    initFightzone();
+  }
 
   $btnFight.on("click", function() {
     // The player attack the opponent
@@ -141,14 +143,53 @@ $(document).ready(function() {
   }
 
   function initVersusPage(){
-    window.setTimeout(function(){
-      $('.versus').find('img').css('transform', 'translateX(0)');
-    }, 3000);
+    $.urlParam = function(name){
+      var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+      return results[1] || 0;
+    }
+
+    console.log($.urlParam('player1'));
+
+    for(let i = 1; i <= 2; i++){
+
+      $uri = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + $.urlParam('player'+i) +'.json';
+
+      $.get( $uri, function( data ) {
+          img =  document.querySelectorAll('.container.versus img')[(i-1)];
+          //$(img).load('<img src="'+ data.images.xs +'">' , function() {
+            $(img).attr('src', data.images.md);
+            window.setTimeout(function(){
+              $(img).css('transform', 'translateX(0)');
+            })
+
+          //});
+      });
+
+    }
+
   }
 
 
+    if($('body').hasClass('win')){
+      initWinPage();
+    }
 
-  
+    function initWinPage(){
+
+        $.urlParam = function(name){
+          var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+          return results[1] || 0;
+        }
+
+            $uri = 'https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/id/' + $.urlParam('player') +'.json';
+
+            $.get( $uri, function( data ) {
+              $('img').attr('src', data.images.lg);
+              $('.winner').html(data.name + ' is a Winner !');
+            });
+
+    }
+
 });
 $.urlParam = function(name){
   var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
