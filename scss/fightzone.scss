@@ -69,6 +69,7 @@
       justify-content: flex-end;
       height: 125px;
       padding: 10px 0;
+      background-color: $red;
       box-sizing: border-box;
       background-image: url('../img/bg_fighter_right.jpg');
       background-size: cover;
@@ -83,13 +84,15 @@
       .fill-life {
         display: block;
         height: 8px;
-        background-color: green;
+        background-color: $green;
+        transition: width .3s ease-out;
       }
     }
 
     .cards {
+      flex-basis: 75px;
+      background-color: $blue;
       flex-grow: 1;
-      background-color: blue;
     }
 
     .stats {
@@ -111,7 +114,7 @@
           .fill-level {
             display: block;
             height: 10px;
-            background-color: green;
+            background-color: $green;
           }
         }
       }

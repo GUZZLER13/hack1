@@ -73,4 +73,16 @@ $(document).ready(function() {
     fight('player', 'opponent');
     fight('opponent', 'player');
   });
+
+
+  if($('body').hasClass('versus')){
+    initVersusPage();
+  }
+
+  function initVersusPage(){
+    window.setTimeout(function(){
+      $('.versus').find('img').css('transform', 'translateX(0)');
+    }, 3000);
+  }
+
 });
