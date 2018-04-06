@@ -128,7 +128,7 @@ $borderBlack: 2px solid black;
       }
     }
 
-    .avatar {
+    .hero-avatar {
       position: relative;
       display: flex;
       flex-direction: column;
@@ -194,7 +194,7 @@ $borderBlack: 2px solid black;
         order: 1;
       }
 
-      .avatar,
+      .hero-avatar,
       .stats {
         margin-right: 0;
       }
@@ -203,7 +203,7 @@ $borderBlack: 2px solid black;
         margin-left: 40px;
       }
 
-      .avatar {
+      .hero-avatar {
         align-items: flex-end;
         margin-left: 31px;
         text-align: right;

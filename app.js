@@ -65,7 +65,7 @@ $(document).ready(function() {
     const $zone = $(`.${_zone}`);
     const $fighter = $('.superhero', $zone);
     const $stats = $('.stats', $fighter);
-    const $avatar = $('.avatar', $fighter);
+    const $avatar = $('.hero-avatar', $fighter);
 
     $fighter.data("life", 100);
     $fighter.data("power", _fighter.powerstats.power);

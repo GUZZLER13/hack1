@@ -69,6 +69,10 @@ footer {
   transition: font-size .3s, font-weight .3s;
   font-size: 1.5rem;
   font-family: 'Bangers';
+  cursor: pointer;
+}
+
+.container:not(.playerselection) .btn {
   &:hover, &:focus, &:active {
     font-size: 5rem;
     font-weight: 700;
