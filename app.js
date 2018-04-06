@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   const initFighter = (_fighter, _zone) => {
     const $zone = $(`.${_zone}`);
-    const $fighter = $('.fighter', $zone);
+    const $fighter = $('.superhero', $zone);
     const $stats = $('.stats', $fighter);
     const $avatar = $('.avatar', $fighter);
 
@@ -14,7 +14,6 @@ $(document).ready(function() {
     $fighter.data("power", _fighter.powerstats.power);
     $fighter.data("defense", _fighter.powerstats.strength);
     $fighter.data("speed", _fighter.powerstats.speed);
-
     // Fill Stats
     $('.strength .fill-level', $stats).css("width", `${_fighter.powerstats.strength}%`);
     $('.power .fill-level', $stats).css("width", `${_fighter.powerstats.power}%`);
@@ -41,9 +40,9 @@ $(document).ready(function() {
 
   const fight = (_src, _dest) => {
     const $zoneSrc = $(`.${_src}`);
-    const $fighterSrc = $('.fighter', $zoneSrc);
+    const $fighterSrc = $('.superhero', $zoneSrc);
     const $zoneDest = $(`.${_dest}`);
-    const $fighterDest = $('.fighter', $zoneDest);
+    const $fighterDest = $('.superhero', $zoneDest);
 
     const srcPower = $fighterSrc.data("power");
 
