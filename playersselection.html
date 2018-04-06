@@ -6,156 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>SuperHero Fight</title>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    <style>
-        html {
-            height: 100%;
-        }
-
-        body,
-        .container {
-            display: flex;
-            flex-direction: column;
-
-            width: 100%;
-            height: 100%;
-            min-width: 100%;
-            min-height: 100%;
-            margin: 0 auto;
-            z-index: 2;
-
-            background-color: #ffffff9e;
-        }
-        header, footer{
-            text-align: center;
-        }
-
-        .characters-list {
-            text-align: center;
-            height: 60%;
-        }
-
-        .avatar-bg {
-            position: fixed;
-            height: 100%;
-            width: 100%;
-            background-image: url(https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api/images/sm/1-a-bomb.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            filter: blur(3px) brightness(0.5);
-        }
-
-        .avatar {
-            background-color: blueviolet;
-            width: 25vw;
-            height: 25vw;
-            display: inline-flex;
-            background-size: cover;
-        }
-
-        .selected {
-            filter: brightness(1.5);
-        }
-
-        .player1 {
-            background-color: blue;
-            background-blend-mode: multiply;
-        }
-
-        .player2 {
-            background-color: red;
-            background-blend-mode: multiply;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="dist/main.bundle.css" />
 </head>
 
 <body>
+  <header><h1>SuperHero Fight</h1></header>
     <div class="avatar-bg"></div>
 
-    <div class="container">
-        <header>
-            <span id="player-header">Player 1</span>
-            <br>select your hero !</header>
+    <div class="container playerselection">
         <div class="characters-list">
-            <div id="avatar0" class="avatar" onclick="selectCharacter(0)"></div>
-            <div id="avatar1" class="avatar" onclick="selectCharacter(1)"></div>
-            <div id="avatar2" class="avatar" onclick="selectCharacter(2)"></div>
+            <div id="0" class="avatar"></div>
+            <div id="1" class="avatar"></div>
+            <div id="2" class="avatar"></div>
 
-            <div id="avatar3" class="avatar" onclick="selectCharacter(3)"></div>
-            <div id="avatar4" class="avatar" onclick="selectCharacter(4)"></div>
-            <div id="avatar5" class="avatar" onclick="selectCharacter(5)"></div>
+            <div id="3" class="avatar"></div>
+            <div id="4" class="avatar"></div>
+            <div id="5" class="avatar"></div>
 
-            <div id="avatar6" class="avatar" onclick="selectCharacter(6)"></div>
-            <div id="avatar7" class="avatar" onclick="selectCharacter(7)"></div>
-            <div id="avatar8" class="avatar" onclick="selectCharacter(8)"></div>
+            <div id="6" class="avatar"></div>
+            <div id="7" class="avatar"></div>
+            <div id="8" class="avatar"></div>
 
 
         </div>
         <div class="hero-details">
 
         </div>
-        <footer>
-            <button id="confirm-button" onclick="confirmSelection()">Select</button>
-            <a id="fight-button" href="/versus.html?player1=player1.id&player2=player2.id" style="display: none;">Ready</a>
-        </footer>
+
+        <div class="hero-selection">
+          <button id="confirm-button" class="btn">Select</button>
+          <a id="fight-button" class="btn" href="/versus.html?player1=player1.id&player2=player2.id" style="display: none;">Ready</a>
+        </div>
+        <footer>SuperHero Fight <em>by</em>&nbsp;formateurs-from-BDX@wildcodeschool.fr</footer>
+        <script src="dist/bundle.js"></script>
     </div>
 </body>
-<script>
-    var superapi = "https://akabab.github.io/superhero-api/api";
-    var superapicached = "https://cdn.rawgit.com/akabab/superhero-api/0.2.0/api";
-
-    var charactersIdxList = [1, 2, 3, 4, 5, 6, 7, 8, 10];
-    var charactersList = [];
-    var player1 = null;
-    var player1Selected = false;
-    var player2 = null;
-
-    //init des characters
-    charactersIdxList.forEach(function (charId, i) {
-        $.get(superapi + "/id/" + charId + ".json", function (character) {
-            charactersList[i] = character;
-            // console.log("data", character.images.xs);
-            // $(".result").html(JSON.stringify(data));
-            if (i == 0)
-                selectCharacter(i);
-
-            $("#avatar" + i).css("background-image", "url(" + character.images.sm + ")");
-        });
-
-    })
-
-
-    var selectCharacter = function (i) {
-        if (!player1Selected) {
-            player1 = charactersList[i];
-            $(".avatar").removeClass("player1");
-            $("#avatar" + i).addClass(" player1");
-            $(".avatar-bg").css("background-image", "url(" + player1.images.sm + ")");
-            $(".hero-details").html(player1.name);
-        } else {
-            player2 = charactersList[i];
-            $(".avatar").removeClass(" player2");
-            $("#avatar" + i).addClass(" player2");
-            $(".avatar-bg").css("background-image", "url(" + player2.images.sm + ")");
-            $(".hero-details").html(player2.name);
-        }
-    }
-
-    var confirmSelection = function () {
-        if (!player1Selected) {
-            player1Selected = true;
-            $("#player-header").text("Player 2");
-            selectCharacter(0);
-        } else {
-            $("#fight-button").attr("href", "/versus.html?player1=" + player1.id + "&player2=" + player2.id);
-            $("#confirm-button").hide();
-            $("#fight-button").show();
-        }
-        console.log(player1Selected);
-    }
-
-</script>
 
 </html>
